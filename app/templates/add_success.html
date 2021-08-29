@@ -2,17 +2,23 @@
 {% block content %}
 <h2>Student added</h2>
 <p>
-    Successfully added the marks and behaviours for <b>{{ student.name }}</b> to the file.
+    Successfully added the subject scores and behaviours for <b>{{ student.name }}</b> to the file.
 </p>
 <p>
     <a href="{{ url_for('index') }}">Return to list of students</a>.
 </p>
 <h3>Student details:</h3>
 <ul>
+    <h4>Subject Scores</h4>
     <li>English: {{ student.english_mark }}</li>
     <li>Science: {{ student.science_mark }}</li>
-    <!-- TODO: Add list item for Mathematics mark -->
-    <li>Does homework?: {% if student.does_homework %} Yes {% else %} No {% endif %}</li>
-    <!-- TODO: Add list item to indicate whether student stays on task (Yes or No) -->
+    <li>Mathematics: {{ student.mathematics_mark }}</li>
+</ul>
+<ul>
+    <h4>Habits</h4>
+    <li>Effort: {% if student.effort %} Yes {% else %} No {% endif %}</li>
+    <li>Behaviour: {% if student.behaviour %} Yes {% else %} No {% endif %}</li>
+    <li>Homework: {% if student.homework %} Yes {% else %} No {% endif %}</li>
+    <li>Organisation: {% if student.organisation %} Yes {% else %} No {% endif %}</li>
 </ul>
 {% endblock %}

@@ -1,5 +1,4 @@
-name,english_mark,science_mark,does_homework
-Jack,90,90,True
-Dom,80,80,False
-Dan,90,80,True
-Michelle,85,95,True
+name,english_mark,science_mark,mathematics_mark,effort,behaviour,homework,organisation
+Sue,78,87,82,True,True,False,True
+Mark,88,78,92,False,True,True,True
+Jerry,50,45,38,False,False,False,False

@@ -29,19 +29,19 @@ def add_student():
         student['name'] = request.form.get('student_name')
         student['english_mark'] = request.form.get('english_mark')
         student['science_mark'] = request.form.get('science_mark')
-        # ADDED: new key to student dictionary for mathematics_mark
         student['mathematics_mark'] = request.form.get('mathematics_mark')
-        student['does_homework'] = request.form.get('does_homework') == 'on'
-        # ADDED: new key to student dictionary for stays_on_task
-        student['stays_on_task'] = request.form.get('stays_on_task') == 'on'
+        student['effort'] = request.form.get('effort') == 'on'
+        student['behaviour'] = request.form.get('behaviour') == 'on'
+        student['homework'] = request.form.get('homework') == 'on'
+        student['organisation'] = request.form.get('organisation') == 'on'
+
         # Load the students from the CSV file and add the new student
         students = load_students()
         students.append(student)
 
         # Open up the csv file and overwrite the contents
         with open('students.csv', 'w', newline='') as file:
-            # TODO: Edit the fieldnames to include the new fields
-            fieldnames = ['name', 'english_mark', 'science_mark', 'mathematics_mark', 'does_homework', 'stays_on_task']
+            fieldnames = ['name', 'english_mark', 'science_mark', 'mathematics_mark', 'effort', 'behaviour', 'homework', 'organisation']
             writer = csv.DictWriter(file, fieldnames = fieldnames)
             writer.writeheader()
             writer.writerows(students)

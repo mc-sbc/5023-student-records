@@ -7,37 +7,55 @@
             <th>Name</th>
             <th>English</th>
             <th>Science</th>
-            <!-- ADDED: heading for Mathematics mark -->
             <th>Mathematics</th>
-            <th>Homework up to date</th>
-            <!-- ADDED: heading for Stays on Task indicator -->
-            <th>Stays on task</th>
+            <td>&nbsp;</td>
+            <th>Effort</th>
+            <th>Behaviour</th>
+            <th>Homework</th>
+            <th>Organisation</th>
         </tr>
     </thead>
     <tbody>
         {% for student in students %}
         <tr>
             <td>{{ student.name }}</td>
-            <td>{{ student.english_mark }}</td>
-            <td>{{ student.science_mark }}</td>
-            <!-- ADDED: cell to the table for the mathematics_mark field -->
-            <td>{{ student.mathematics_mark }}</td>
-            <td>
-                {% if student.does_homework %}
-                    {% if student.does_homework == 'True' %}
-                    Yes
+            <td style="text-align: right">{{ student.english_mark }}%</td>
+            <td style="text-align: right">{{ student.science_mark }}%</td>
+            <td style="text-align: right">{{ student.mathematics_mark }}%</td>
+            <td>&nbsp;</td>
+            <td style="text-align: center">
+                {% if student.effort %}
+                    {% if student.effort == 'True' %}
+                    &#10003;
                     {% else %}
-                    No
+                    &#x2717;
                     {% endif %}
                 {% endif %}
             </td>
-            <!-- ADDED: cell to the table for the stays_on_task field -->
-            <td>
-                {% if student.stays_on_task %}
-                    {% if student.stays_on_task == 'True' %}
-                    Yes
+            <td style="text-align: center">
+                {% if student.behaviour %}
+                    {% if student.behaviour == 'True' %}
+                    &#10003;
                     {% else %}
-                    No
+                    &#x2717;
+                    {% endif %}
+                {% endif %}
+            </td>
+            <td style="text-align: center">
+                {% if student.homework %}
+                    {% if student.homework == 'True' %}
+                    &#10003;
+                    {% else %}
+                    &#x2717;
+                    {% endif %}
+                {% endif %}
+            </td>
+            <td style="text-align: center">
+                {% if student.organisation %}
+                    {% if student.organisation == 'True' %}
+                    &#10003;
+                    {% else %}
+                    &#x2717;
                     {% endif %}
                 {% endif %}
             </td>
