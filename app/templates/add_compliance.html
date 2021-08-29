@@ -1,45 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Enter student marks</h2>
+<h2>Enter Compliance</h2>
 <form method="POST" class="pure-form pure-form-stacked">
-    <label for="student_name">Student name:</label>
-    <input type="text" name="student_name" id="student_name" />
+    <label for="staff_name">Staff name:</label>
+    <input type="text" name="staff_name" id="staff_name" />
 
-    <h3>Subject Scores</h3>
+    <h3>Compliance</h3>
 
-    <label for="english_mark">English mark:</label>
-    <input type="number" name="english_mark" id="english_mark" />
-
-    <label for="science_mark">Science mark:</label>
-    <input type="number" name="science_mark" id="science_mark" />
-
-    <label for="mathematics_mark">Mathematics mark:</label>
-    <input type="number" name="mathematics_mark" id="mathematics_mark" />
-
-    <h3>Habits</h3>
-
-    <label for="effort" class="pure-checkbox">
-        Effort:
-        <input type="checkbox" name="effort" id="effort" />
+    <label for="vit" class="pure-checkbox">
+        VIT:
+        <input type="checkbox" name="vit" id="vit" />
     </label>
     
-    <label for="behaviour" class="pure-checkbox">
-        Behaviour:
-        <input type="checkbox" name="behaviour" id="behaviour" />
-    </label>
-
-    <label for="homework" class="pure-checkbox">
-        Homework:
-        <input type="checkbox" name="homework" id="homework" />
-    </label>
-
-    <label for="organisation" class="pure-checkbox">
-        Organisation:
-        <input type="checkbox" name="organisation" id="organisation" />
+    <label for="mandatory_rep" class="pure-checkbox">
+        Mandatory Reporting:
+        <input type="checkbox" name="mandatory_rep" id="mandatory_rep" />
     </label>
 
     <br>
-    <input type="submit" class="pure-button pure-button-primary" value="Add student" />
+    <input type="submit" class="pure-button pure-button-primary" value="Add staff" />
 
 </form>
 {% endblock %}

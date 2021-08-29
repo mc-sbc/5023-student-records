@@ -1,31 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>All students</h2>
+<h2>My Compliance Status</h2>
 <table class="pure-table pure-table-striped">
     <thead>
         <tr>
             <th>Name</th>
-            <th>English</th>
-            <th>Science</th>
-            <th>Mathematics</th>
-            <td>&nbsp;</td>
-            <th>Effort</th>
-            <th>Behaviour</th>
-            <th>Homework</th>
-            <th>Organisation</th>
+            <th>VIT</th>
+            <th>Mandatory Reporting</th>
         </tr>
     </thead>
     <tbody>
-        {% for student in students %}
+        {% for staff in staff %}
         <tr>
-            <td>{{ student.name }}</td>
-            <td style="text-align: right">{{ student.english_mark }}%</td>
-            <td style="text-align: right">{{ student.science_mark }}%</td>
-            <td style="text-align: right">{{ student.mathematics_mark }}%</td>
-            <td>&nbsp;</td>
+            <td>{{ staff.name }}</td>
             <td style="text-align: center">
-                {% if student.effort %}
-                    {% if student.effort == 'True' %}
+                {% if staff.VIT %}
+                    {% if staff.VIT == 'True' %}
                     &#10003;
                     {% else %}
                     &#x2717;
@@ -33,39 +23,20 @@
                 {% endif %}
             </td>
             <td style="text-align: center">
-                {% if student.behaviour %}
-                    {% if student.behaviour == 'True' %}
+                {% if staff.mandatory_rep %}
+                    {% if staff.mandatory_rep == 'True' %}
                     &#10003;
                     {% else %}
                     &#x2717;
                     {% endif %}
                 {% endif %}
-            </td>
-            <td style="text-align: center">
-                {% if student.homework %}
-                    {% if student.homework == 'True' %}
-                    &#10003;
-                    {% else %}
-                    &#x2717;
-                    {% endif %}
-                {% endif %}
-            </td>
-            <td style="text-align: center">
-                {% if student.organisation %}
-                    {% if student.organisation == 'True' %}
-                    &#10003;
-                    {% else %}
-                    &#x2717;
-                    {% endif %}
-                {% endif %}
-            </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 <p>
-    <a class="pure-button pure-button-primary" href="{{ url_for('add_student') }}">
-        Add another student
+    <a class="pure-button pure-button-primary" href="{{ url_for('add_staff') }}">
+        Add another compliance
     </a>
 </p>
 {% endblock %}

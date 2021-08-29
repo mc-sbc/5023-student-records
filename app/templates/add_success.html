@@ -1,24 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Student added</h2>
+<h2>Compliance added</h2>
 <p>
-    Successfully added the subject scores and behaviours for <b>{{ student.name }}</b> to the file.
+    Successfully recorded compliance for <b>{{ staff.name }}</b> to the file.
 </p>
 <p>
-    <a href="{{ url_for('index') }}">Return to list of students</a>.
+    <a href="{{ url_for('index') }}">Return to my compliance</a>.
 </p>
-<h3>Student details:</h3>
+<h3>Staff details:</h3>
 <ul>
-    <h4>Subject Scores</h4>
-    <li>English: {{ student.english_mark }}</li>
-    <li>Science: {{ student.science_mark }}</li>
-    <li>Mathematics: {{ student.mathematics_mark }}</li>
-</ul>
-<ul>
-    <h4>Habits</h4>
-    <li>Effort: {% if student.effort %} Yes {% else %} No {% endif %}</li>
-    <li>Behaviour: {% if student.behaviour %} Yes {% else %} No {% endif %}</li>
-    <li>Homework: {% if student.homework %} Yes {% else %} No {% endif %}</li>
-    <li>Organisation: {% if student.organisation %} Yes {% else %} No {% endif %}</li>
+    <h4>Compliance</h4>
+    <li>VIT: {% if staff.vit %} Yes {% else %} No {% endif %}</li>
+    <li>Mandatory Reporting: {% if staff.mandatory_rep %} Yes {% else %} No {% endif %}</li>
 </ul>
 {% endblock %}

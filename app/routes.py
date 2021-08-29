@@ -4,50 +4,44 @@ from flask import render_template, request
 
 from app import app
 
-def load_students():
-    # A utility function to load the students' grades from the csv file
-    students = []
-    with open('students.csv') as file:
+def load_staff():
+    # A utility function to load the staff' grades from the csv file
+    staff = []
+    with open('staff.csv') as file:
         reader = csv.DictReader(file)
         for row in reader:
-            students.append(row)
-    return students
+            staff.append(row)
+    return staff
 
 @app.route('/')
 def index():
-    # Load the students from the CSV file for the table
-    students = load_students()
-    # Return the index view with the list of students for display
-    return render_template('index.html', students = students)
+    # Load the staff from the CSV file for the table
+    staff = load_staff()
+    # Return the index view with the list of staff for display
+    return render_template('index.html', staff = staff)
 
-@app.route('/add_student', methods = ['GET', 'POST'])
-def add_student():
+@app.route('/add_compliance', methods = ['GET', 'POST'])
+def add_staff():
     # Check if the form has been submitted (is a POST request)
     if request.method == 'POST':
         # Get data from the form and put in dictionary
-        student = {}
-        student['name'] = request.form.get('student_name')
-        student['english_mark'] = request.form.get('english_mark')
-        student['science_mark'] = request.form.get('science_mark')
-        student['mathematics_mark'] = request.form.get('mathematics_mark')
-        student['effort'] = request.form.get('effort') == 'on'
-        student['behaviour'] = request.form.get('behaviour') == 'on'
-        student['homework'] = request.form.get('homework') == 'on'
-        student['organisation'] = request.form.get('organisation') == 'on'
+        staff = {}
+        staff['VIT'] = request.form.get('VIT') == 'on'
+        staff['mandatory_rep'] = request.form.get('mandatory_rep') == 'on'
 
-        # Load the students from the CSV file and add the new student
-        students = load_students()
-        students.append(student)
+        # Load the staff from the CSV file and add the new staff
+        staff = load_staff()
+        staff.append(staff)
 
         # Open up the csv file and overwrite the contents
-        with open('students.csv', 'w', newline='') as file:
-            fieldnames = ['name', 'english_mark', 'science_mark', 'mathematics_mark', 'effort', 'behaviour', 'homework', 'organisation']
+        with open('staff.csv', 'w', newline='') as file:
+            fieldnames = ['name', 'VIT', 'mandatory_rep']
             writer = csv.DictWriter(file, fieldnames = fieldnames)
             writer.writeheader()
-            writer.writerows(students)
+            writer.writerows(staff)
         
-        # Returns the view with a message that the student has been added
-        return render_template('add_success.html', student = student)
+        # Returns the view with a message that the staff has been added
+        return render_template('add_success.html', staff = staff)
 
     # When there is a GET request, the view with the form is returned
-    return render_template('add_student.html')
+    return render_template('add_compliance.html')
