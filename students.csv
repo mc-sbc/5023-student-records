@@ -2,3 +2,4 @@ name,english_mark,science_mark,mathematics_mark,effort,behaviour,homework,organi
 Sue,78,87,82,True,True,False,True
 Mark,88,78,92,False,True,True,True
 Jerry,50,45,38,False,False,False,False
+Chris,78,65,59,False,True,True,False
